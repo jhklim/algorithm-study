@@ -20,7 +20,7 @@ public class BOJ15651 {
         System.out.println(sb);
     }
 
-    private static void dfs(int depth) throws IOException {
+    private static void dfs(int depth) {
         if (depth == M) {
             for (int i = 0; i < M; i++) {
                 sb.append(arr[i]).append(' ');
@@ -29,9 +29,9 @@ public class BOJ15651 {
             return;
         }
 
-        for (int i = 1; i <= N; i++) { // 1, 2, 3
-            arr[depth] = i; // arr[0] = 1 -> arr[1] = 1 -> arr[2] = 1
-            dfs(depth+1); // dfs(1) -> dfs(2) -> dfs(3)
+        for (int i = 1; i <= N; i++) {
+            arr[depth] = i;
+            dfs(depth+1);
         }
     }
 }
