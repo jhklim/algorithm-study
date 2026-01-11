@@ -3,6 +3,7 @@ package boj.two_pointer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ3273 {
@@ -12,42 +13,26 @@ public class BOJ3273 {
         int n = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr = new int[n];
+        int[] A = new int[n];
 
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+            A[i] = Integer.parseInt(st.nextToken());
         }
-
-        int temp = -1;
-        for (int i = 0; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
-                if(arr[i] > arr[j]) {
-                    arr[i] = temp;
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
+        Arrays.sort(A);
 
         int x = Integer.parseInt(br.readLine());
-
-        int start = 0;
-        int end = 0;
-        int sum = 0;
+        int s = 0;
+        int e = n-1;
         int cnt = 0;
-        while(end < n) {
-            if(sum > x) {
-                sum = sum - arr[start];
-                start++;
-            } else if(sum < x) {
-                end++;
-                if (end < n) {
-                    sum = sum + arr[end];
-                }
-            } else { // sum == x
+        while(s < e) {
+            if(A[s] + A[e] < x) {
+                s++;
+            } else if(A[s] + A[e] > x) {
+                e--;
+            } else { // arr[s] + arr[e] == x
                 cnt++;
-                sum = sum - arr[start];
-                start++;
+                s++;
+                e--;
             }
         }
         System.out.println(cnt);
