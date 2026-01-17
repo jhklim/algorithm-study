@@ -99,3 +99,16 @@ O(K log L)
 O((N+M) log N)
 - 정렬: O(N log N)
 - 각 탐색: O(log N)
+
+# BOJ 7795 - 먹을 것인가 먹힐 것인가
+
+두 배열 A, B가 주어질 때,
+A의 원소가 B의 원소보다 큰 경우 쌍 개수를 구하는 문제
+
+## 접근 방법
+- 이분 탐색(Upper Bound) 사용
+
+## 시간 복잡도
+O((N+M) log N)
+- 정렬: O(N log N)
+- 각 탐색 O(M log N)
