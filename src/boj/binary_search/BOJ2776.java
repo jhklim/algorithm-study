@@ -31,7 +31,7 @@ public class BOJ2776 {
                 int result  = binarySearch(Integer.parseInt(st.nextToken()));
                 sb.append(result).append('\n');
             }
-            System.out.println(sb);
+            System.out.print(sb);
         }
     }
 
