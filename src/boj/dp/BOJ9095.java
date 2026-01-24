@@ -28,3 +28,4 @@ public class BOJ9095 {
         System.out.println(sb);
     }
 }
+
